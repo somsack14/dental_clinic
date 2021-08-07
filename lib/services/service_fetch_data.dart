@@ -29,6 +29,38 @@ class ServiceFetchData{
     return response.data;
   }
 
+  ///
+  Future bookingService (accessToken,arrayService) async {
+    String url = '$urlAPI/api/booking';
+    response = await _dio.post(
+      url.toString(),
+      options: Options(headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $accessToken',
+      }),
+      data: {
+        'service_id' : '$arrayService',
+      }
+    );
+    return response.data;
+  }
+
+  /// booking list cancel
+  Future cancelServiceList (accessToken,serviceId) async {
+    String url = '$urlAPI/api/booking-cancel';
+    response = await _dio.post(
+      url.toString(),
+      options: Options(headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $accessToken',
+      }),
+      data: {
+        'booking_id':'$serviceId',
+      }
+    );
+    return response.data;
+  }
+
 
   /// booking list
   Future bookingList(accessToken) async {

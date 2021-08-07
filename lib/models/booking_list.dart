@@ -29,6 +29,7 @@ class Data {
   String timeService;
   List<String> serviceList;
   String status;
+  int statusId;
   String userReceive;
   String timeBooking;
   String timePeriod;
@@ -38,6 +39,7 @@ class Data {
         this.timeService,
         this.serviceList,
         this.status,
+        this.statusId,
         this.userReceive,
         this.timeBooking,
         this.timePeriod});
@@ -47,6 +49,7 @@ class Data {
     timeService = json['time_service'];
     serviceList = json['service_list'].cast<String>();
     status = json['status'];
+    statusId = json['status_id'];
     userReceive = json['user_receive'];
     timeBooking = json['time_booking'];
     timePeriod = json['time_period'];
@@ -58,6 +61,7 @@ class Data {
     data['time_service'] = this.timeService;
     data['service_list'] = this.serviceList;
     data['status'] = this.status;
+    data['status_id'] = this.statusId;
     data['user_receive'] = this.userReceive;
     data['time_booking'] = this.timeBooking;
     data['time_period'] = this.timePeriod;

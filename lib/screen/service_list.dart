@@ -61,6 +61,7 @@ class _ServiceListState extends State<ServiceList> {
     final FetchDataProvider fetchDataProvider =
         Provider.of<FetchDataProvider>(context);
     SizeConfig().init(context);
+
     return Scaffold(
       appBar: AppBar(
         title: TextConfig().textHeadSizeCustom('ຈອງຄິວ', lightColor,
@@ -74,7 +75,7 @@ class _ServiceListState extends State<ServiceList> {
         ),
       ),
       bottomNavigationBar: SendRequestService(
-        amountService: serviceID.length,
+        amountService: serviceID.length, arrayService: serviceID.join(","),
       ),
       body: fetchDataProvider.getServiceList == null
           ? Center(child: MyStyle().circleProgress())

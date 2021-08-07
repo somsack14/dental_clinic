@@ -1,5 +1,5 @@
 import 'package:dental_clinics/provider/fetch_data_provider.dart';
-import 'package:dental_clinics/screen/booking_list.dart';
+import 'package:dental_clinics/screen/booking_list_cancel.dart';
 import 'package:dental_clinics/screen/service_list.dart';
 import 'package:dental_clinics/services/auth_service.dart';
 import 'package:dental_clinics/style/color_const.dart';
