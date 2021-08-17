@@ -40,6 +40,9 @@ dependencies:
   multi_select_flutter: ^4.0.0
   flutter_custom_clippers: ^2.0.0
   rflutter_alert: ^2.0.4
+  fdottedline: ^1.0.0
+  fsuper: ^2.0.2
+  barcode_flutter: ^1.1.2
 
 dev_dependencies:
   flutter_test:

@@ -1,4 +1,5 @@
 
+import 'package:dental_clinics/models/bill_list_model.dart';
 import 'package:dental_clinics/models/booking_list.dart';
 import 'package:dental_clinics/models/client_info_model.dart';
 import 'package:dental_clinics/models/service_list_model.dart';
@@ -29,6 +30,14 @@ class FetchDataProvider extends ChangeNotifier{
 
   void saveBookingList(value){
     _bookingList = BookingList.fromJson(value);
+    notifyListeners();
+  }
+
+  BillList _billList;
+  BillList get getBillList => _billList;
+
+  void saveBillList(value){
+    _billList = BillList.fromJson(value);
     notifyListeners();
   }
 
