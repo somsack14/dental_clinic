@@ -79,7 +79,7 @@ class _PromiseState extends State<Promise> {
     final FetchDataProvider fetchDataProvider =
         Provider.of<FetchDataProvider>(context);
     SizeConfig().init(context);
-
+    print('${fetchDataProvider.getBookingList.data[0].statusId == 2}');
     return Scaffold(
       appBar: AppBar(
         title: TextConfig().textHeadSizeCustom('ນັດໝາຍ', lightColor,
@@ -92,7 +92,9 @@ class _PromiseState extends State<Promise> {
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
-      body: Container(
+      body: fetchDataProvider.getBookingList.data[0].statusId != 2 ? Center(
+        child: Text('ຍັງບໍ່ມີການນັດໝາຍ'),
+      ) :  Container(
         child: ListView.builder(
             physics: NeverScrollableScrollPhysics(),
             shrinkWrap: true,

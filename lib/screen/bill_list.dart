@@ -61,7 +61,6 @@ class _BillListState extends State<BillList> {
     final FetchDataProvider fetchDataProvider =
         Provider.of<FetchDataProvider>(context);
     SizeConfig().init(context);
-
     return Scaffold(
       appBar: AppBar(
         title: TextConfig().textHeadSizeCustom('ບິນຂອງທ່ານ', lightColor,
