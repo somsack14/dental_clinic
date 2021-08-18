@@ -1,5 +1,8 @@
 import 'package:dental_clinics/provider/fetch_data_provider.dart';
+import 'package:dental_clinics/screen/bill_list.dart';
 import 'package:dental_clinics/screen/booking_list_cancel.dart';
+import 'package:dental_clinics/screen/content.dart';
+import 'package:dental_clinics/screen/promise.dart';
 import 'package:dental_clinics/screen/service_list.dart';
 import 'package:dental_clinics/services/auth_service.dart';
 import 'package:dental_clinics/style/color_const.dart';
@@ -39,13 +42,13 @@ class _HomeState extends State<Home> {
             onPressed: () => Scaffold.of(context).openDrawer(),
           ),
         ),
-        actions: [
-          IconBtnWithCounter(
-            svgSrc: 'images/bell.png',
-            press: () {},
-            numOfItem: 10,
-          ),
-        ],
+        // actions: [
+        //   IconBtnWithCounter(
+        //     svgSrc: 'images/bell.png',
+        //     press: () {},
+        //     numOfItem: 10,
+        //   ),
+        // ],
       ),
       drawer: menuDrawer(context,fetchDataProvider),
       backgroundColor: whiteColor,
@@ -84,7 +87,9 @@ class _HomeState extends State<Home> {
                       MyStyle().routePushNavigator(ServiceList(), context);
                     },
                         Colors.blueAccent, false),
-                    boxMenu('ຕາຕະລາງນັດ', 'images/time.png', () {},
+                    boxMenu('ບິນ', 'images/bill_icon.png', () {
+                      MyStyle().routePushNavigator(BillList(), context);
+                    },
                         Colors.orangeAccent, false),
                   ],
                 ),
@@ -94,7 +99,9 @@ class _HomeState extends State<Home> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    boxMenu('ໃບນັດ', 'images/calender.png', () {},
+                    boxMenu('ນັດໝາຍ', 'images/calender.png', () {
+                      MyStyle().routePushNavigator(Promise(), context);
+                    },
                         Colors.blueAccent, true),
                     boxMenu('ຍົກເລີກການຈອງ', 'images/eye.png', () {
                       MyStyle().routePushNavigator(BookingList(), context);
@@ -120,7 +127,9 @@ class _HomeState extends State<Home> {
           Padding(
             padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.0),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                MyStyle().routePushNavigator(ContentClinic(), context);
+              },
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
@@ -150,11 +159,11 @@ class _HomeState extends State<Home> {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               TextConfig().textHeadSizeCustom(
-                                  'ການດັດຟັນ',
+                                  'ການຮັກສາສຸຂະພາບແຂ້ວ',
                                   blackColor,
                                   FontWeight.bold,
                                   SizeConfig.screenWidth * 0.04),
-                              Text('ການດັດຟັນຈະຕ້ອງຖອນແຂ້ວ..',
+                              Text('ການຮັກສາຈະຕ້ອງຖອນແຂ້ວ..',
                                   style: TextStyle(color: Colors.grey))
                             ],
                           ),

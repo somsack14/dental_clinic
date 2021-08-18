@@ -29,7 +29,7 @@ class ServiceFetchData{
     return response.data;
   }
 
-  ///
+  /// not select datetime
   Future bookingService (accessToken,arrayService) async {
     String url = '$urlAPI/api/booking';
     response = await _dio.post(
@@ -41,6 +41,35 @@ class ServiceFetchData{
       data: {
         'service_id' : '$arrayService',
       }
+    );
+    return response.data;
+  }
+
+  Future bookingServiceWithTime (accessToken,arrayService,timeService) async {
+    String url = '$urlAPI/api/booking';
+    response = await _dio.post(
+        url.toString(),
+        options: Options(headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $accessToken',
+        }),
+        data: {
+          'service_id' : '$arrayService',
+          'time_service' : '$timeService',
+        }
+    );
+    return response.data;
+  }
+
+  ///bill lsit
+  Future billList (accessToken) async {
+    String url = '$urlAPI/api/bill-list-client';
+    response = await _dio.post(
+      url.toString(),
+      options: Options(headers: {
+        'Accept': 'application/json',
+        'Authorization': 'Bearer $accessToken',
+      }),
     );
     return response.data;
   }
